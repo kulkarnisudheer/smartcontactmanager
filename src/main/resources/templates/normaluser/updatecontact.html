@@ -1,0 +1,224 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+ th:replace="normaluser/base::layout(~{::section})">
+<head>
+	<meta charset="UTF-8" />
+	<title>userview </title>
+</head>
+<body>
+
+<section>
+
+
+
+
+ <div class="card  ml-4 mr-4"> 
+ 
+
+ <div class="card-body"> 
+  
+ <h1 class = "text-center">Update Contact Form</h1>
+ 
+ <div class="container-fluid mt-1 "> 
+ <div class="row"> 
+ <div class="col-md-10 offset-md-1"> 
+ 
+ <form action="#"
+ th:object = "${contact}"
+ enctype="multipart/form-data"
+ 
+ method="post"
+ th:action="@{/user/process-update}"
+ 
+ class = "mt-2" >
+ 
+ 
+ <input type = "hidden"  name = "cid" th:value = "${contact.cid}" >
+ <!-- name -->
+<div class="input-group ">
+
+<div class="input-group-prepend"> 
+
+<div class="input-group-text"> 
+<i class = "fa fa-plus"></i>
+
+
+</div>
+
+</div>
+
+<input  type = "text"
+name = "cname"
+required
+placeholder = "Enter Name"
+class = "form-control " 
+th:classappend="${#fields.hasErrors('cname') ? 'is-invalid':''}"
+th:value="${contact.cname}"
+/>
+
+<div class="invalid-feedback" th:each ="e : ${#fields.errors('cname')}" th:text = "${e}"> 
+
+
+</div>
+
+</div>
+
+<!-- nickname -->
+
+<div class="input-group mt-3">
+
+<div class="input-group-prepend"> 
+
+<div class="input-group-text"> 
+<i class = "fas fa-user-alt"></i>
+
+
+</div>
+
+</div>
+
+<input  type = "text"
+name = "cnickname"
+ required
+placeholder = "Enter Nick Name"
+class = "form-control" 
+th:value="${contact.cnickname}"
+/>
+
+</div>
+
+<!--email  -->
+
+
+<div class="input-group mt-3">
+
+<div class="input-group-prepend"> 
+
+<div class="input-group-text"> 
+
+@
+
+</div>
+
+</div>
+
+<input type = "email"
+name = "cemail"
+required
+placeholder = "Enter Email"
+class = "form-control" 
+th:value="${contact.cemail}"
+/>
+
+</div>
+
+ 
+ 
+ <!-- phone no -->
+ <div class="input-group mt-3">
+
+<div class="input-group-prepend"> 
+
+<div class="input-group-text"> 
+<i class = "fas fa-phone"></i>
+
+
+</div>
+
+</div>
+
+<input type = "number"
+name = "cphoneno"
+required min ="10" 
+placeholder = "Enter Phone Number"
+class = "form-control" 
+th:value="${contact.cphoneno}"
+/>
+
+</div>
+ 
+ <!-- work -->
+ 
+ <div class="input-group mt-3">
+
+<div class="input-group-prepend"> 
+
+<div class="input-group-text"> 
+<i class = "fa fa-briefcase"></i>
+
+
+</div>
+
+</div>
+
+<input type = "text"
+name = "cwork"
+placeholder = "Enter work "
+class = "form-control" 
+th:value="${contact.cwork}"
+/>
+
+</div>
+ 
+ 
+ <!-- description -->
+ 
+ <div class="input-group mt-3">
+<textarea  th:text ="${contact.cdescription}" id="mytextarea" class = "form-control" placeholder = "Enter Description"  name = "cdescription" rows="7" cols=""></textarea>
+
+
+</div>
+ 
+ 
+ <!-- image --> 
+ 
+ <div class="container text-center mt-2">
+  <img alt="profilephoto" class= "myprofile" src=""
+       th:src="@{'/image/'+${contact.photo}}">
+      
+ </div>
+  <p>choose new  contact photo</p>
+ <div class="custom-file"> 
+ 
+ <input type = "file" name ="myphoto"  />
+ 
+ 
+ </div>
+ 
+
+<div class = "container text-center">
+ <button class = " btn btn-primary">Save Contact</button>
+ 
+ </div>
+ 
+ 
+ </form>
+ 
+ </div>
+ 
+ </div>
+ 
+ 
+ </div>
+ 
+ </div>
+ 
+ 
+
+ 
+ 
+ </div>
+
+
+
+
+
+
+
+
+
+</section>
+	
+</body>
+</html>
+

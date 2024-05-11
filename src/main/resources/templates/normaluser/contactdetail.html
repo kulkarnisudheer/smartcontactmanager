@@ -1,0 +1,103 @@
+
+<!-- 24 -->
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+ th:replace="normaluser/base::layout(~{::section})">
+<head>
+	<meta charset="UTF-8" />
+	<title>userview </title>
+</head>
+<body>
+
+<section>
+
+<!-- 25 -->
+<div class="card mr-3 ml-3" th:if="${contactid}"> 
+<!-- 25 -->
+
+<div class="card-body">
+
+
+<div class="container text-center"> 
+
+      <img alt="profilephoto" class= "myprofile" src=""
+       th:src="@{'/image/'+${contactid.photo}}">
+
+     <h2 class="mt-3" >
+     <span  th:text="${contactid.cname}"></span>
+    (<span th:text = "${contactid.cnickname}"></span>)
+     
+     </h2>
+     
+     <table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#Id</th>
+      <th scope="col" th:text= "${contactid.cid}"></th>
+     
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">Email</th>
+      <td th:text= "${contactid.cemail}"></td>
+     
+    </tr>
+    <tr>
+      <th scope="row">Phone</th>
+      <td><span th:text= "${contactid.cphoneno}"></span></td>
+      
+    </tr>
+    <tr>
+      <th scope="row">Work</th>
+      <td th:text= "${contactid.cwork}"></td>
+     
+    </tr>
+    
+   
+    
+  </tbody>
+</table>
+
+<div class="container text-center">
+     <h3 > <u>Description</u></h3>
+     
+     <h5 class= "mt-3" th:text="${contactid.cdescription}"></h5>
+     
+      </div>
+       <div class="container text-center">
+       <a th:href="@{'/user/deletecontact/'+${contactid.cid}} " 
+        class = "btn btn-danger btn-sm">Delete</a>
+       
+ <form class = "mt-2" method = "post" th:action="@{'/user/update-contact-detail/'+${contactid.cid}}">
+       <button  type = "submit" class = "btn btn-success btn-sm">Update</button>
+       
+       </form>       
+      </div>
+     
+</div>
+
+
+
+
+</div>
+
+
+
+
+</div>
+
+
+<!-- 25 -->
+
+<h1  class = "text-center p-3 bg-danger text-white" th:unless="${contactid}">You don't have permission to access this contact</h1>
+
+<!-- 25 -->
+
+
+</section>
+	
+</body>
+</html>
+<!-- 24 -->
+

@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+ th:replace="normaluser/base::layout(~{::section})">
+<head>
+	<meta charset="UTF-8" />
+	<title>Home </title>
+</head>
+<body>
+
+<section class="banner  d-flex justify-content-center align-items-center">
+
+
+<div class = "text-center">
+<h1 class = "font-italic ">Let's Have a Talk </h1>
+
+<p class ="font-italic">just click on this add contact button you can add your contacts</p>
+<a th:href = "@{/user/addcontact}" class ="btn btn-success btn-lg mt-3 ">Add Contact</a>
+
+</div>
+</section>
+	
+</body>
+</html>
+

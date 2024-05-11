@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+ th:replace="normaluser/base::layout(~{::section})">
+<head>
+	<meta charset="UTF-8" />
+	<title>userview </title>
+</head>
+<body>
+
+<section>
+
+<div class="card text-center ml-3 mr-3">
+<div class="card-body"> 
+
+   <img   alt="profilephoto" class= "myprofile" src=""
+       th:src="@{'/image/'+${user.imageurl}}">
+       
+<h1 class = "text-center" th:text = ${user.name}></h1>
+<div class="table-responsive"> 
+  <table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#UserId</th>
+      <th scope="col" th:text= "${user.id}"></th>
+     
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">Email</th>
+      <td th:text= "${user.email}"></td>
+     
+    </tr>
+    <tr>
+      <th scope="row">Role</th>
+      <td><span th:text= "${user.role}"></span></td>
+      
+    </tr>
+    <tr>
+      <th scope="row">Account</th>
+      <td th:text= "${user.enabled}"></td>
+     
+    </tr>
+     <tr>
+      <th scope="row">About</th>
+      <td th:text= "${user.about}"></td>
+     
+    </tr>
+   
+    
+  </tbody>
+</table>
+
+</div> 
+</div>
+
+
+</div>
+
+
+
+</section>
+	
+</body>
+</html>
